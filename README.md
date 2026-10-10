@@ -42,7 +42,7 @@ This class should have the following necessary methods:
     method in the Inventory class.
     It should iterate through the book list and return all books with matching or partially matching titles (case-insensitive)
 
-    6.) You may implement additional helper methods such as getMainInventoryCount()to retrieve the number of books available.
+    6.) You may implement additional helper methods such as getMainInventoryCount() to retrieve the number of books available.
     These methods can also assist in handling edge cases, such as when a user attempts to return a book even though no books have been lent out.
 
 Main program or method
