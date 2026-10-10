@@ -25,17 +25,25 @@ This Inventory class should have a Java ArrayList or LinkedList as a data struct
 Optionally, create a second ArrayList or LinkedList to track currently borrowed books. 
 This class should have the following necessary methods:
 
-    1.) addBook()—This method creates a new Book object and adds it to the main inventory. It can be implemented using either an    ArrayList or LinkedList.
+    1.) addBook() —
+    This method creates a new Book object and adds it to the main inventory.
+    It can be implemented using either an ArrayList or LinkedList.
 
-    2.) borrowBook() – This method handles the borrowing process by removing a book from the main inventory and adding it to the lending inventory.
+    2.) borrowBook() – 
+    This method handles the borrowing process by removing a book from the main inventory and adding it to the lending inventory.
 
-    3.) returnBook() – This method processes book returns by moving the book from the lending inventory back to the main inventory.
+    3.) returnBook() – 
+    This method processes book returns by moving the book from the lending inventory back to the main inventory.
 
-    4.) printAll() – This method iterates over the book collection (ArrayList or LinkedList) and calls the printBookInfo() method from the Book class to display details of each book.
+    4.) printAll() – 
+    This method iterates over the book collection (ArrayList or LinkedList) and calls the printBookInfo() method from the Book class to display details of each book.
 
-    5.) searchByTitle(String title) – method in the Inventory class. It should iterate through the book list and return all books with matching or partially matching titles (case-insensitive)
+    5.) searchByTitle(String title) – 
+    method in the Inventory class.
+    It should iterate through the book list and return all books with matching or partially matching titles (case-insensitive)
 
-    6.) You may implement additional helper methods such as getMainInventoryCount()to retrieve the number of books available. These methods can also assist in handling edge cases, such as when a user attempts to return a book even though no books have been lent out.
+    6.) You may implement additional helper methods such as getMainInventoryCount()to retrieve the number of books available.
+    These methods can also assist in handling edge cases, such as when a user attempts to return a book even though no books have been lent out.
 
 Main program or method
 
@@ -51,15 +59,18 @@ In your main() method, create and display a menu like below:
 
 Add Book
 
-    The user is prompted to enter all book details: id, title, author, ISBN number, and number of pages.
+    The user is prompted to enter all book details:
+        id, title, author, ISBN number, and number of pages.
 
-    Once the information is entered, the book is added to the main inventory, and a confirmation message is displayed: “Book added to the library.”
+    Once the information is entered, the book is added to the main inventory, and a confirmation message is displayed:
+        “Book added to the library.”
 
 Borrow Book
 
     The user is asked to enter the unique id of the book they want to borrow.
 
-    If the book exists and is available, it is moved from the main inventory to the lending inventory, and the system displays: “Book successfully borrowed.”
+    If the book exists and is available, it is moved from the main inventory to the lending inventory, and the system displays:
+        “Book successfully borrowed.”
 
     If the book is not found or already borrowed, an appropriate message is shown.
 
@@ -67,7 +78,8 @@ Return Books
 
     The user enters the id of the book to return.
     
-    If the book is currently in the lending inventory, it is returned to the main inventory, and the user sees: “Book successfully returned.”
+    If the book is currently in the lending inventory, it is returned to the main inventory, and the user sees:
+        “Book successfully returned.”
 
     If the book is not in the lending list, an error message is shown.
 
@@ -77,7 +89,8 @@ Search by Title
 
     The system searches the main inventory and displays all matching results.
 
-    If no books are found, it displays: “No matching book found.”
+    If no books are found, it displays:
+        “No matching book found.”
 
 Print All Books
 
@@ -89,11 +102,13 @@ Exit
 
     Ends the program execution gracefully.
 
-    Displays a message like: “Exiting the program. Goodbye!”
+    Displays a message like:
+        “Exiting the program. Goodbye!”
 
 Exception Handling
 
-    Your program must utilize exception handling using Java try…catch approach. One example would be handling invalid inputs.
+    Your program must utilize exception handling using Java try…catch approach. 
+    One example would be handling invalid inputs.
 
 Other Guidelines
 
