@@ -20,6 +20,28 @@ public class Book implements LibraryItem {
     //Parameterized constructor to initialize book's data
     public Book(int id, String title, String author, String isbn, int pages) {
 
+        //Validation Trows
+        if (id <0) {
+
+            throw new IllegalArgumentException("Book ID can't be Negative.");
+        }
+        if (title == null || title.isBlank()){
+
+            throw new IllegalArgumentException("Title cant be Blank.");
+        }
+        if (author == null || author.isBlank()){
+
+            throw new IllegalArgumentException("Author can't be Blank.");
+        }
+        if(isbn == null || isbn.isBlank()){
+
+            throw new IllegalArgumentException("ISBN can't be Blank.");
+        }
+        if (pages <= 0){
+
+            throw new IllegalArgumentException("Number of Pages must be Positive.");
+        }
+
         this.id = id;
         this.title = title;
         this.author = author;

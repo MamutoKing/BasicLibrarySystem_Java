@@ -60,8 +60,12 @@ public class Inventory {
 
             if (book.getId() == id) {
 
+                String title = book.getTitle();
+
                 borrowedBooks.add(book);
                 inventory.remove(i);
+
+                System.out.println("\"" + title + "\" has been borrowed.");
 
                 return true;
             }
@@ -123,6 +127,8 @@ public class Inventory {
                     && book.getTitle()
                         .toLowerCase()
                         .contains(searchText)) {
+                
+                System.out.println("Match found: \"" + book.getTitle() + "\"");
 
                 book.printBookInfo();
                 found = true;
@@ -157,6 +163,16 @@ public class Inventory {
         }
     }
 
+    public Book findBookById(int id){
+
+        for (Book book : inventory){
+
+            if (book.getId() == id){
+                return book;
+            }
+        }
+        return null;
+    }
     //Returns the number of books available to borrow
     public int getAvailableCount() {
 

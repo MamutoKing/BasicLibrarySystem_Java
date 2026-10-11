@@ -141,15 +141,21 @@ public class LibrarySystem {
         }
 
         //Create a Book object w/ parameterized constructor
-        Book newBook = new Book(id, title, author, isbn, pages);
+        try{
+            Book newBook = new Book(id, title, author, isbn, pages);
 
-        //Inventory performs a second Duplicate-ID check
-        if (inventory.addBook(newBook)){
+            //Inventory performs a second Duplicate-ID check
+            if (inventory.addBook(newBook)){
 
-            System.out.println("Book added successfully.");
+                System.out.println("\"" + title + "\" has been added to Library");
+            }
+            else{
+                System.out.println("Failed to add book. Duplicate ID detected.");
+            }
         }
-        else{
-            System.out.println("Failed to add book. Duplicate ID detected.");
+        catch (IllegalArgumentException e){
+
+            System.out.println("Book not added: " + e.getMessage());
         }
     }
     
@@ -158,12 +164,25 @@ public class LibrarySystem {
 
         int id = readInt(input, "Enter the ID of the book to borrow: ");
 
+        //Find the book before attempting to borrow
+        Book book = inventory.findBookById(id);
+
+        //Prevent NullPointerException if ID doesnt exist
+        //when attempting to call book.getTitle.
+        //Program will stop here
+        if (book == null){
+            
+            System.out.println( "Book ID " + id + "cannot be found.");
+            return;
+        }
+
         if (inventory.borrowBook(id)){
 
-            System.out.println("Book borrowed successfully.");
+            System.out.println("\"" + book.getTitle() + "\" borrowed successfully");
         }
         else{
-            System.out.println("Book not available for borrowing.");
+
+            System.out.println("\"" + book.getTitle() + "\" is not available for borrowing.");
         }
     }
 
@@ -172,24 +191,37 @@ public class LibrarySystem {
 
         int id = readInt(input, "Enter the ID of the book to return: ");
 
+        //Find the book before Attempting to return iterating
+        Book book = inventory.findBookById(id);
+
+        //Prevent NullPointerException if ID doesnt exist
+        //when attempting to call book.getTitle.
+        //Program will stop here
+        if (book == null){
+
+            System.out.println("Book ID " + id + "cannot be found.");
+            return;
+        }
+
         if (inventory.returnBook(id)){
 
-            System.out.println("Book returned successfully.");
+            System.out.println("\"" + book.getTitle() + "\" returned successfully");
         }
         else{
-            System.out.println("Book not found in borrowed list.");
+
+            System.out.println("\"" + book.getTitle() + "\" found in borrowed list.");
         }
     }
     
     //Searches Books by title (full or partial).
     private static void searchBooks(Scanner input, Inventory inventory){
 
-        System.out.print("Enter the title or part of the title to search: ");
+        System.out.print("Enter the title  to search: ");
         String searchTerm = input.nextLine().trim();
 
         if (searchTerm.isBlank()){
 
-            System.out.println("Search term cannot be blank.");
+            System.out.println("\"" + searchTerm + "\" cannot be located.");
             return;
         }
 
