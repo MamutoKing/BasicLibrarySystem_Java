@@ -60,12 +60,10 @@ public class Inventory {
 
             if (book.getId() == id) {
 
-                String title = book.getTitle();
-
                 borrowedBooks.add(book);
                 inventory.remove(i);
 
-                System.out.println("\"" + title + "\" has been borrowed.");
+                System.out.println("\"" + book.getTitle() + "\" has been borrowed.");
 
                 return true;
             }
@@ -163,16 +161,28 @@ public class Inventory {
         }
     }
 
-    public Book findBookById(int id){
+// Search both available and borrowed books by ID
+public Book findBookById(int id){
 
-        for (Book book : inventory){
+    // Search available books
+    for (Book book : inventory){
 
-            if (book.getId() == id){
-                return book;
-            }
+        if (book.getId() == id){
+            return book;
         }
-        return null;
     }
+
+    // Search borrowed books
+    for (Book book : borrowedBooks){
+
+        if (book.getId() == id){
+            return book;
+        }
+    }
+
+    return null;
+}
+
     //Returns the number of books available to borrow
     public int getAvailableCount() {
 
