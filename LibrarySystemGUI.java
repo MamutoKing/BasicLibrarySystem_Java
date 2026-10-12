@@ -1,3 +1,4 @@
+/* 
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -30,14 +31,14 @@ public class LibrarySystemGUI extends Application {
     private TextArea outputArea = new TextArea();
 
     @Override
-    private void start(Stage primaryStage){
+    public void start(Stage primaryStage){
 
         //Window Title
         primaryStage.setTitle("Library Management System");
 
         //Labels
         Label idLabel = new Label("Book ID:");
-        Label titleLabel = new Label("Title:")
+        Label titleLabel = new Label("Title:");
         Label authorLabel = new Label("Author:");
         Label isbnLabel = new Label("ISBN:");
         Label pagesLabel = new Label("Number of Pages:");
@@ -78,7 +79,7 @@ public class LibrarySystemGUI extends Application {
         Button countButton = new Button("Display Counts");
 
         //Output Area Settings
-        outputArea.SetEditable(false);
+        outputArea.setEditable(false);
         outputArea.setPrefHeight(300);
 
         //Add Book Button
@@ -91,8 +92,8 @@ public class LibrarySystemGUI extends Application {
                 Book newBook = new Book(
                     id, 
                     titleField.getText().trim(),
-                    author.fireld.getText().trim(),
-                    isbn.getText().trim(),
+                    authorField.getText().trim(),
+                    isbnField.getText().trim(),
                     pages
                 );
 
@@ -127,7 +128,7 @@ public class LibrarySystemGUI extends Application {
                     outputArea.appendText("Book with ID: " + id + " cannot be located \n");
                     return;
                 }
-                if (inventory.borrowBook(id));{
+                if (inventory.borrowBook(id)){
 
                     outputArea.appendText("\"" + book.getTitle() + "\" borrowed successfully. \n");
                 }
@@ -156,7 +157,7 @@ public class LibrarySystemGUI extends Application {
                     outputArea.appendText("Book with ID: " + id + " cannot be located \n");
                     return;
                 }
-                if (inventory.returnBook(id));{
+                if (inventory.returnBook(id)){
 
                     outputArea.appendText("\"" + book.getTitle() + "\" returned successfully. \n");
                 }
@@ -173,7 +174,7 @@ public class LibrarySystemGUI extends Application {
         });
 
         //Search Button
-        searchButton.setAction(event -> {
+        searchButton.setOnAction(event -> {
 
             String search = searchField.getText().trim();
 
@@ -212,7 +213,7 @@ public class LibrarySystemGUI extends Application {
             searchButton,
             displayButton,
             countButton,
-            otputArea
+            outputArea
         );
 
         //Create Scene
@@ -223,7 +224,8 @@ public class LibrarySystemGUI extends Application {
     }
 
     //JavaFX Launch
-    public static vois main(String[] args){
+    public static void main(String[] args){
         launch(args);
     }  
 }
+*/
